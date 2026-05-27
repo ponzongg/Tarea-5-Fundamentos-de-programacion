@@ -1,0 +1,41 @@
+## Nombre del estudiante: Luis Diego Ponzon Giraldo
+## Grupo:  213022_5
+## Programa: Ingeniería de Sistemas
+## Código fuente: autoría propia
+
+# Estructura de la matriz de toppings de una heladeria:
+# [Código Artículo, Nombre, Stock Actual, Stock Mínimo Requerido]
+
+inventario=[
+    ["001", "Coco", 2, 5],
+    ["002", "Vainilla", 3, 5],
+    ["003", "Mani", 1, 5],
+    ["004", "Fresa", 4, 5],
+    ["005", "Arequipe", 5, 5]
+]
+
+# Definimos la función que determina la cantidad exacta a pedir
+
+def revisar_stock(stock_actual, stock_minimo):
+
+    if stock_actual < stock_minimo:
+        cantidad_a_pedir=stock_minimo - stock_actual
+    else:
+        cantidad_a_pedir=0
+
+    return cantidad_a_pedir
+
+# Ahora vamos a recorrer la matriz para evaluar el stock y asignarle nombre a cada cosa
+
+print("INFORME DE REABASTECIMIENTO")
+print("--------------------------------")
+
+for articulo in inventario:
+    codigo = articulo[0]
+    nombre = articulo[1]
+    stock_actual = articulo[2]
+    stock_minimo = articulo[3]
+
+    cantidad = revisar_stock(stock_actual, stock_minimo)
+
+    print(f"Código: {codigo} | Artículo: {nombre} | Cantidad a pedir: {cantidad}")
